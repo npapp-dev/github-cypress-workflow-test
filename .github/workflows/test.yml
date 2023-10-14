@@ -10,4 +10,6 @@ jobs:
         id: cypress
         uses: cypress-io/github-action@v6
       - name: Get tests
-        run: echo ${{steps.cypress.conclusion}}
+        run: |
+          echo ${{steps.cypress.conclusion}}
+          echo ${{steps.cypress.outcome}}
