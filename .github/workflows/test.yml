@@ -13,3 +13,4 @@ jobs:
         run: |
           echo ${{steps.cypress.conclusion}}
           echo ${{steps.cypress.outcome}}
+          echo ${{steps.cypress.outputs.testResults}}
