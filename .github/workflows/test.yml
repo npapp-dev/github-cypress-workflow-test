@@ -7,4 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install Cypress and run tests
+        id: cypress
         uses: cypress-io/github-action@v6
+      - name: Get tests
+        run: echo ${{steps.cypress.conclusion}}
