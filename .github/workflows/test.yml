@@ -9,7 +9,7 @@ jobs:
       - name: Install Cypress and run tests
         id: cypress
         uses: cypress-io/github-action@v6
-        run: |
+      - run: |
           echo ${{steps.cypress.conclusion}}
           echo ${{steps.cypress.outcome}}
           echo ${{steps.cypress.outputs.testResults}}
