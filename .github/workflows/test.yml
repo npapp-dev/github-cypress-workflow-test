@@ -1,6 +1,5 @@
 name: Output information
-on:
-  push:
+on: [push, workflow-dispatch]:
     workflow-call:
       inputs:
         browser:
