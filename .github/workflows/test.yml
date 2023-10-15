@@ -1,11 +1,19 @@
 name: Output information
-on: push
+on:
+  push:
+    workflow-call:
+      inputs:
+        browser:
+          description: List of browsers for the tests to use
+          required: false
+          default: chrome
+          type: string
 jobs:
   info:
     continue-on-error: true
     strategy:
       matrix:
-        browser: [chrome, firefox, edge]
+        browser: ${{inputs.browser}}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
