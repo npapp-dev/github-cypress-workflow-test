@@ -32,7 +32,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: ${{matrix.browser}}
-        env: CYPRESS_market=${{github.event.inputs.markets}}
+        env: market=${{github.event.inputs.markets}}
         #run: npx cypress run --browser ${{matrix.browser}} --env market=${{github.event.inputs.markets}}
       - name: Get results
         run: |
