@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "open:cypress": "npx cypress open",
-    "run:cypress": "npx cypress run",
+    "run:cypress": "npx cypress run --browser edge --env market=['EN','DE]",
     "test": "ng test"
   },
   "private": true,

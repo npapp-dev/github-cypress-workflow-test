@@ -9,9 +9,12 @@ export default defineConfig({
     inlineAssets: true,
     saveAllAttempts: false,
   },
+  env: {
+    market: 'HU'
+  },
   e2e: {
     setupNodeEvents(on, config) {
-        require('cypress-mochawesome-reporter/plugin')(on);
+      require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
 });
