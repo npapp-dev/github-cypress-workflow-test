@@ -11,7 +11,7 @@ on:
         description: Markets where the tests should run on
         required: true
         default: '[["HU","DE"]]'
-          type: string
+        type: string
 jobs:
   info:
     continue-on-error: true
