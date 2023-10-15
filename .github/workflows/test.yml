@@ -10,7 +10,7 @@ on:
         markets:
           description: Markets where the tests should run on
           required: true
-          default: '["HU"]'
+          default: '[["HU","DE"]]'
           type: string
 jobs:
   info:
