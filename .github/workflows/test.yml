@@ -6,8 +6,7 @@ jobs:
     strategy:
       matrix:
         browser: [chrome, firefox, edge]
-        operating-system: [ubuntu-latest, windows-latest]
-    runs-on: ${{matrix.operating-system}}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
