@@ -14,5 +14,5 @@ jobs:
           echo ${{steps.cypress.outcome}}
           echo ${{steps.cypress.outputs.testResults}}
           echo ${{github}}
-          echo ${{GITHUB_STEP_SUMMARY}}
+  
 
