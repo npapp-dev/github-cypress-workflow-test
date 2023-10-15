@@ -5,6 +5,7 @@ jobs:
     continue-on-error: true
     strategy:
       matrix:
+        browser: [chrome, firefox, edge]
         operating-system: [ubuntu-latest, windows-latest]
     runs-on: ${{matrix.operating-system}}
     steps:
@@ -14,7 +15,7 @@ jobs:
         run: npm install
       - name: Start cypress
         id: cypress
-        run: npx cypress run
+        run: npx cypress run --browser ${{browser}}
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}
