@@ -1,5 +1,6 @@
 name: Cypress tests
 on:
+  push:
   workflow_dispatch:
     inputs:
       browsers:
@@ -28,7 +29,7 @@ jobs:
         run: echo ${{matrix.browser}} - ${{github.event.inputs.markets}}
       - name: Cypress run
         id: cypress
-        uses: cypress-io/github-actions@v6
+        uses: cypress-io/github-action@v6
         with:
           browser: ${{matrix.browser}}
           env: CYPRESS_market=${{github.event.inputs.markets}}
