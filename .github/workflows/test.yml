@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Cypress and run tests
         run: npm install
+      - name: Log matrix runs
+        run: echo ${{matrix.browser}} - ${{matrix.market}}
       - name: Cypress run
         id: cypress
         run: npx cypress run --browser ${{matrix.browser}} --env market=${{matrix.market}}
