@@ -4,7 +4,7 @@ on:
       inputs:
         browsers:
           description: List of browsers for the tests to use
-          required: false
+          required: true
           default: '["chrome"]'
           type: string
 jobs:
