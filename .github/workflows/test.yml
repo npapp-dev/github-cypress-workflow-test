@@ -26,11 +26,7 @@ jobs:
         run: npm install
       - name: Cypress run
         id: cypress
-        uses: cypress-io/github-action@v6
-        with:
-          browser: ${{matrix.browsers}}
-          env:
-            market: ${{matrix.markets}}
+        run: npx cypress run --browser ${{matrix.browsers}} --env market=${{matrix.markets}},
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}
