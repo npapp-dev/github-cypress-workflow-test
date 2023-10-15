@@ -10,7 +10,7 @@ on:
       markets:
         description: Markets where the tests should run on
         required: true
-        default: '[["HU","DE"]]'
+        default: '["HU","DE"]'
         type: string
 jobs:
   info:
@@ -18,7 +18,6 @@ jobs:
     strategy:
       matrix:
         browser: ${{ fromJSON(github.event.inputs.browsers) }}
-        market: ${{ fromJSON(github.event.inputs.markets) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,7 +28,7 @@ jobs:
         run: echo ${{matrix.browser}} - ${{matrix.market}}
       - name: Cypress run
         id: cypress
-        run: npx cypress run --browser ${{matrix.browser}} --env market=${{matrix.market}}
+        run: npx cypress run --browser ${{matrix.browser}} --env market=${{github.event.inputs.markets}}
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}
