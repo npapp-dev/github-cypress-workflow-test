@@ -5,7 +5,7 @@ on:
         browser:
           description: List of browsers for the tests to use
           required: false
-          default: chrome
+          default: [chrome]
           type: string
 jobs:
   info:
