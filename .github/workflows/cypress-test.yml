@@ -12,6 +12,11 @@ on:
         required: true
         default: '["HU","DE"]'
         type: string
+      tags:
+        description: Tags should work in this way
+        required: true
+        default: '@smoke'
+        type: string
 jobs:
   browser:
     continue-on-error: true
@@ -31,7 +36,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: ${{matrix.browser}}
-          env: market=${{github.event.inputs.markets}}
+          env: market=${{github.event.inputs.markets}},grepTags=${{github.event.inputs.tags}}
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}
