@@ -5,14 +5,14 @@ on:
         browser:
           description: List of browsers for the tests to use
           required: false
-          default: [chrome]
+          default: chrome
           type: string
 jobs:
   info:
     continue-on-error: true
     strategy:
       matrix:
-        browser: ${{inputs.browser}}
+        browser: [${{inputs.browser}}]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
