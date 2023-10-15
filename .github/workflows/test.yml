@@ -29,7 +29,8 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: ${{matrix.browsers}}
-          env: market=${{matrix.markets}}
+          env:
+            market: ${{matrix.markets}}
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}

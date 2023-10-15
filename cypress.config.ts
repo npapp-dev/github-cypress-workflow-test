@@ -10,7 +10,7 @@ export default defineConfig({
     saveAllAttempts: false,
   },
   env: {
-    market: 'HU'
+    market: ['HU']
   },
   e2e: {
     setupNodeEvents(on, config) {
