@@ -18,6 +18,7 @@ jobs:
     strategy:
       matrix:
         browser: ${{ fromJSON(github.event.inputs.browsers) }}
+        market: ${{ fromJSON(github.event.inputs.markets) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,7 +27,7 @@ jobs:
         run: npm install
       - name: Cypress run
         id: cypress
-        run: npx cypress run --browser ${{matrix.browsers}}
+        run: npx cypress run --browser ${{matrix.browsers}} --env market=${{matrix.market}}
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}
