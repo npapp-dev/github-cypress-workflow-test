@@ -1,5 +1,5 @@
 name: Output information
-on: workflow_dispatch
+on: push
 jobs:
   info:
     continue-on-error: true
