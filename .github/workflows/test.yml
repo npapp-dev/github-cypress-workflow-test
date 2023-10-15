@@ -1,6 +1,6 @@
 name: Cypress tests
 on:
-    workflow_dispatch:
+    [ push, workflow_dispatch ]:
       inputs:
         browsers:
           description: List of browsers for the tests to use
