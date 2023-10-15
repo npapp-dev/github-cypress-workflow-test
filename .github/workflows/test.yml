@@ -2,17 +2,17 @@ name: Output information
 on:
     workflow_dispatch:
       inputs:
-        browser:
+        browsers:
           description: List of browsers for the tests to use
           required: false
-          default: chrome
+          default: '["chrome"]'
           type: string
 jobs:
   info:
     continue-on-error: true
     strategy:
       matrix:
-        browser: [${{inputs.browser}}]
+        browser: ${{ fromJSON(github.event.inputs.browsers) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
