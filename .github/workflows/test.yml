@@ -1,6 +1,6 @@
 name: Output information
 on:
-    workflow-dispatch:
+    workflow_dispatch:
       inputs:
         browser:
           description: List of browsers for the tests to use
