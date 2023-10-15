@@ -25,10 +25,14 @@ jobs:
       - name: Install Cypress and run tests
         run: npm install
       - name: Log matrix runs
-        run: echo ${{matrix.browser}} - ${{matrix.market}}
+        run: echo ${{matrix.browser}} - ${{github.event.inputs.markets}}
       - name: Cypress run
         id: cypress
-        run: npx cypress run --browser ${{matrix.browser}} --env market=${{github.event.inputs.markets}}
+        uses: cypress-io/github-actions@v6
+        with:
+          browser: ${{matrix.browser}}
+          env: CYPRESS_market=${{github.event.inputs.markets}}
+        #run: npx cypress run --browser ${{matrix.browser}} --env market=${{github.event.inputs.markets}}
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}
