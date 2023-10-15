@@ -1,6 +1,5 @@
 name: Cypress tests
 on:
-  push:
   workflow_dispatch:
     inputs:
       browsers:
