@@ -10,7 +10,7 @@ jobs:
         run: npm install
       - name: Start cypress
         id: cypress
-        run: npx cypress open
+        run: npx cypress run
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}
