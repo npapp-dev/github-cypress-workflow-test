@@ -1,5 +1,6 @@
 name: Cypress tests
 on:
+  push:
   workflow_dispatch:
     inputs:
       browsers:
@@ -13,7 +14,7 @@ on:
         default: '["HU","DE"]'
         type: string
 jobs:
-  info:
+  browser:
     continue-on-error: true
     strategy:
       matrix:
@@ -32,7 +33,6 @@ jobs:
         with:
           browser: ${{matrix.browser}}
           env: market=${{github.event.inputs.markets}}
-        #run: npx cypress run --browser ${{matrix.browser}} --env market=${{github.event.inputs.markets}}
       - name: Get results
         run: |
           echo ${{steps.cypress.conclusion}}
