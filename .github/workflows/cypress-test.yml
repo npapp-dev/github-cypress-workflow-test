@@ -42,4 +42,8 @@ jobs:
           echo ${{steps.cypress.conclusion}}
           echo ${{steps.cypress.outcome}}
           echo ${{steps.cypress.outputs.testResults}}
-
+  information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run custom action
+        uses: ./.github/actions/deploy-s3-javascript
