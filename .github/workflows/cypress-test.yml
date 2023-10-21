@@ -1,22 +1,6 @@
 name: Cypress tests
 on:
-  workflow_dispatch:
-    inputs:
-      browsers:
-        description: List of browsers for the tests to use
-        required: true
-        default: '["chrome"]'
-        type: string
-      markets:
-        description: Markets where the tests should run on
-        required: true
-        default: '["HU","DE"]'
-        type: string
-      tags:
-        description: Tags should work in this way
-        required: true
-        default: '@smoke'
-        type: string
+  push:
 jobs:
   browser:
     continue-on-error: true
