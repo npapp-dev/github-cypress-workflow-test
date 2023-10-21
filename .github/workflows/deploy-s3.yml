@@ -21,4 +21,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         with:
           bucket: aws-bucket-github-actions
-          dist-folder: ./dist
+          dist-folder: ./dist/angular-github-workflow
