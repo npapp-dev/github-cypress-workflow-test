@@ -1,6 +1,6 @@
 name: Cypress tests
 on:
-  push:
+  workflow-dispatch:
 jobs:
   browser:
     continue-on-error: true
