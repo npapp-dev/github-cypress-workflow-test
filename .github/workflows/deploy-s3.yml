@@ -11,7 +11,7 @@ jobs:
       - name: Output contents
         run: ls
       - name: Build
-        run: npm build
+        run: npm run build
       - name: Deploy site
         uses: ./.github/actions/deploy-s3-javascript
         env:
