@@ -23,3 +23,6 @@ jobs:
         with:
           bucket: aws-bucket-github-actions
           dist-folder: ./dist/angular-github-workflow
+      - name: Output information
+        run: |
+          echo "Live URl: ${{steps.deploy.outputs.website-url}}
