@@ -8,12 +8,12 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Output contents
-        run: ls
       - name: Install dependencies
         run: npm install
       - name: Build
         run: npm run build
+      - name: Output contents
+        run: ls
       - name: Deploy site
         uses: ./.github/actions/deploy-s3-javascript
         env:
