@@ -1,6 +1,5 @@
 name: Deploy S3
 on:
-  push:
   workflow_dispatch:
 
 jobs:
