@@ -14,7 +14,7 @@ jobs:
       - name: Install npm dependencies
         run: npm install
       - name: Build
-        run: npm build
+        run: npm run build
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@main
         env:
