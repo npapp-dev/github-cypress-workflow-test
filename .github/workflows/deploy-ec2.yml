@@ -1,7 +1,6 @@
 name: EC2 Angular deploy
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:

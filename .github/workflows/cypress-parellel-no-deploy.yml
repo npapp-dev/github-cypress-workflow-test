@@ -48,3 +48,11 @@ jobs:
         with:
           name: Test Report - ${{matrix.browser}}
           path: cypress/reports
+
+  notify:
+    needs: [ browser ]
+    continue-on-error: true
+    steps:
+      - name: Check
+        run: echo "hello"
+
