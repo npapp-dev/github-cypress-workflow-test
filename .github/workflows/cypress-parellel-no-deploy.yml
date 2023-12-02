@@ -1,0 +1,50 @@
+name: Cypress parallel tests
+on:
+  workflow_dispatch:
+    inputs:
+      browsers:
+        description: List of browsers for the tests to use
+        required: true
+        default: '["chrome"]'
+        type: string
+      markets:
+        description: Markets where the tests should run on
+        required: true
+        default: '["HU","DE"]'
+        type: string
+      tags:
+        description: Tags should work in this way
+        required: true
+        default: '@smoke'
+        type: string
+
+jobs:
+  browser:
+    continue-on-error: true
+    strategy:
+      matrix:
+        browser: ${{ fromJSON(github.event.inputs.browsers) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Cypress and run tests
+        run: npm install
+      - name: Log matrix runs
+        run: echo ${{matrix.browser}} - ${{github.event.inputs.markets}}
+      - name: Cypress run
+        id: cypress
+        uses: cypress-io/github-action@v6
+        with:
+          browser: ${{matrix.browser}}
+          env: market=${{github.event.inputs.markets}},grepTags=${{github.event.inputs.tags}}
+      - name: Get results
+        run: |
+          echo ${{steps.cypress.conclusion}}
+          echo ${{steps.cypress.outcome}}
+          echo ${{steps.cypress.outputs.testResults}}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test Report - ${{matrix.browser}}
+          path: cypress/reports
