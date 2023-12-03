@@ -5,7 +5,7 @@ on:
       browsers:
         description: List of browsers for the tests to use
         required: true
-        default: '["chrome"]'
+        default: '["chrome","firefox","edge"]'
         type: string
       markets:
         description: Markets where the tests should run on
