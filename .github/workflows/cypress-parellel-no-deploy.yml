@@ -31,7 +31,7 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: '**/node_modules'
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
       - name: Install Cypress and run tests
         run: npm install
